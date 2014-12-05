@@ -41,14 +41,27 @@
     }
 
     #container {
-      width: 400px;
-      height: 400px;
+      width: 100%;
+      height: 100%;
     }
+    #containerContainer {
+      width: 500px;
+      height: 500px;
+    }
+    #FullScreen {
+      margin-top: 50px;
+    }
+
   </style>
 </head>
 <body>
-<div id="container" width="500" height="500">
-  <div id="crosshair"><img src="crosshair4.png"></div>
+<div id="containerContainer">
+  <div id="container">
+    <div id="crosshair"><img src="crosshair4.png"></div>
+  </div>
+</div>
+<div>
+  <button id="FullScreen" type="button" onclick="game.plugins.get('voxel-fullscreen').toggle();" >Fullscreen</button>
 </div>
 <script src="bundle.js"></script>
 </body>

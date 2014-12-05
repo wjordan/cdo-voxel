@@ -66,6 +66,7 @@ main = () ->
     exposeGlobal:true,
     artPacks: ['JehkobasFantasy_4.zip'],
     container: document.getElementById('container'),
+    element: document.getElementById('container'),
     pluginOpts:
       'voxel-engine':
         appendDocument: true
@@ -109,6 +110,7 @@ main = () ->
           'P': 'packs'
 
           'F1': 'zen'
+          'F': 'fullscreen'
 
     # built-in plugins
       'voxel-registry': {}
@@ -182,7 +184,9 @@ main = () ->
     # handles 'break' event from voxel-mine (left-click hold breaks blocks), collects block and adds to inventory
       'voxel-harvest': {}
   #    'voxel-voila': {}
-      'voxel-fullscreen': {}
+      'voxel-fullscreen': {
+        element: document.getElementById('container')
+      }
       'voxel-keys': {}
 
     # the GUI window (built-in toggle with 'H')
@@ -195,6 +199,7 @@ main = () ->
   container = '#container'
   window.game = game # for debugging
   game.appendTo(container)
-
+  game.shell.on 'gl-init', () ->
+    document.getElementById('container').children[1].style.position = "relative"
 
 main()
