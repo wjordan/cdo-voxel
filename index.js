@@ -1,4 +1,7 @@
-var createGame = require('voxel-engine')
+require('voxel-plugins-ui');
+
+var createEngine = require('voxel-engine')
+
 var highlight = require('voxel-highlight')
 var player = require('voxel-player')
 var voxel = require('voxel')
@@ -8,18 +11,26 @@ var walk = require('voxel-walk')
 
 module.exports = function(opts, setup) {
   setup = setup || defaultSetup
+
   var defaults = {
+    require:require,
     generate: voxel.generator['Valley'],
-    chunkDistance: 2,
+    chunkDistance: 1,
     materials: ['#fff', '#000'],
     materialFlatColor: true,
     worldOrigin: [0, 0, 0],
-    controls: { discreteFire: true }
+    controls: { discreteFire: true },
+    container: '#container',
+    pluginOpts: {
+      'voxel-stitch': {
+        artpacks: ['ProgrammerArt-ResourcePack.zip']
+      }
+    }
   }
   opts = extend({}, defaults, opts || {})
 
   // setup the game and add some trees
-  var game = createGame(opts)
+  var game = createEngine(opts)
   var container = opts.container || document.body
   window.game = game // for debugging
   game.appendTo(container)
