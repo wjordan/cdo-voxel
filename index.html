@@ -14,8 +14,8 @@
     }
 
     #crosshair {
-      /* centered on screen */
-      position: fixed;
+      /* centered on div */
+      position: relative;
       top: 50%;
       left: 50%;
       margin: -16px 0 0 -16px;
@@ -39,12 +39,17 @@
       width: 200px;
       margin: 20px auto;
     }
+
+    #container {
+      width: 400px;
+      height: 400px;
+    }
   </style>
 </head>
 <body>
-<img id="logo" class="logo" src="logo-white.png">
-<div id="container"></div>
-<div id="crosshair"><img src="crosshair4.png"></div>
+<div id="container" width="500" height="500">
+  <div id="crosshair"><img src="crosshair4.png"></div>
+</div>
 <script src="bundle.js"></script>
 </body>
 </html>
