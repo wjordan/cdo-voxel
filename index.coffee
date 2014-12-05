@@ -64,7 +64,7 @@ main = () ->
   game = createEngine {
     require:require,
     exposeGlobal:true,
-    artPacks: ['ProgrammerArt-ResourcePack.zip'],
+    artPacks: ['JehkobasFantasy_4.zip'],
     container: document.getElementById('container'),
     pluginOpts:
       'voxel-engine':
@@ -113,7 +113,7 @@ main = () ->
     # built-in plugins
       'voxel-registry': {}
       'voxel-stitch':
-        artpacks: ['ProgrammerArt-ResourcePack.zip']
+        artpacks: ['JehkobasFantasy_4.zip']
       'voxel-shader':
       #cameraFOV: 45
       #cameraFOV: 70
