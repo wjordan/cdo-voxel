@@ -6,8 +6,8 @@ require 'voxel-artpacks'
 require 'voxel-chunkborder'
 require 'voxel-outline'
 require 'voxel-carry'
-require 'voxel-bucket'
-require 'voxel-fluid'
+#require 'voxel-bucket'
+#require 'voxel-fluid'
 #require 'voxel-virus'
 #require 'voxel-skyhook'
 require 'voxel-recipes'
@@ -55,6 +55,7 @@ require 'voxel-debug'
 require 'voxel-fullscreen'
 require 'voxel-keys'
 #require 'kb-bindings-ui'
+#window.generators = require './generators.js'
 
 createEngine = require 'voxel-engine'
 
@@ -62,9 +63,10 @@ main = () ->
   console.log 'voxpopuli starting'
 
   game = createEngine {
+#    generate: (x, y, z)  ->
+#      return (y == 1) ? 1 : 0
     require:require,
     exposeGlobal:true,
-    artPacks: ['JehkobasFantasy_4.zip'],
     container: document.getElementById('container'),
     element: document.getElementById('container'),
     pluginOpts:
@@ -115,7 +117,7 @@ main = () ->
     # built-in plugins
       'voxel-registry': {}
       'voxel-stitch':
-        artpacks: ['JehkobasFantasy_4.zip']
+        artpacks: ['Upscaled_1.02.zip']
       'voxel-shader':
       #cameraFOV: 45
       #cameraFOV: 70
@@ -135,8 +137,8 @@ main = () ->
       'voxel-measure': {}
       'voxel-webview': {onDemand: true}  # disabled by default until https://github.com/deathcap/voxel-webview/issues/3
       'voxel-carry': {inventoryWidth:10, inventoryRows:5}
-      'voxel-bucket': {fluids: ['water', 'lava']}
-      'voxel-fluid': {}
+#      'voxel-bucket': {fluids: ['water', 'lava']}
+#      'voxel-fluid': {}
     #'voxel-virus': {materialSource: 'water', material: 'waterFlow', isWater: true} # requires this.game.materials
   #    'voxel-skyhook': {}
       'voxel-blockdata': {}
@@ -199,7 +201,5 @@ main = () ->
   container = '#container'
   window.game = game # for debugging
   game.appendTo(container)
-  game.shell.on 'gl-init', () ->
-    document.getElementById('container').children[1].style.position = "relative"
 
 main()
