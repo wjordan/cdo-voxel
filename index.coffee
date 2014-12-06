@@ -117,7 +117,7 @@ main = () ->
     # built-in plugins
       'voxel-registry': {}
       'voxel-stitch':
-        artpacks: ['Upscaled_1.02.zip']
+        artpacks: ['voxel_textures.zip']
       'voxel-shader':
       #cameraFOV: 45
       #cameraFOV: 70
